@@ -13,10 +13,9 @@ struct entity {
 
 void printfStatus(struct entity * entity) {
 
-    printf("%s", (* entity).name, (* entity).healthPoints);
-
-
-
+    printf("\n%-8s health points = %3d"  , (*entity).name, (*entity).healthPoints);
+    printf("\n%-8s attack power  = %3d"  , (*entity).name, (*entity).attackPower );
+    printf("\n%-8s defense       = %3d\n", (*entity).name, (*entity).defense     );
 
 }
 
@@ -24,31 +23,20 @@ void printfStatus(struct entity * entity) {
 int main() {
 
     struct entity attacker;
+    struct entity enemy;
 
     attacker.name         = "attacker";
     attacker.healthPoints = 100;
     attacker.attackPower  =  50;
     attacker.defense      =  10;
 
-    printf("\n%s health points = %3d", attacker.name, attacker.healthPoints);
-    printf("\n%s attack power  = %3d", attacker.name, attacker.attackPower );
-    printf("\n%s defense       = %3d", attacker.name, attacker.defense     );
-    printf("\n\n");
+    enemy.name            = "enemy";
+    enemy.healthPoints    = 150;
+    enemy.attackPower     =  25;
+    enemy.defense         =   5;
 
     printfStatus(&attacker);
-
-    /*
-    attacker health points = 100
-    attacker attack power  =  50
-    attacker defense       =  10
-
-    enemy health points    = 150
-    enemy attack power     =  25
-    enemy defense          =   5
-    */
-
-
-
-
+    printfStatus(&enemy   );
+    printf("\n");
 
 }
